@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>二叉搜索树</title>
+  </head>
+  <body>
+    <script type="module">
+      import { BinarySearchTree } from "./BinarySearchTree.js";
+      const tree = new BinarySearchTree();
+      //   插入
+      tree.insert(11);
+      tree.insert(7);
+      tree.insert(15);
+      tree.insert(5);
+      tree.insert(3);
+      tree.insert(9);
+      tree.insert(8);
+      tree.insert(10);
+      tree.insert(13);
+      tree.insert(12);
+      tree.insert(14);
+      tree.insert(20);
+      tree.insert(18);
+      tree.insert(19);
+      tree.insert(25);
+
+      //   测试先序遍历
+      let res = [];
+      tree.preOrderTraversal((key) => {
+        res.push(key);
+      });
+      console.log("先序遍历", res);
+
+      //   测试中序遍历
+      res = [];
+      tree.midOrderTraversal((key) => {
+        res.push(key);
+      });
+      console.log("中序遍历", res);
+
+      //   测试后序遍历
+      res = [];
+      tree.postOrderTraversal((key) => {
+        res.push(key);
+      });
+      console.log("后序遍历", res);
+
+      console.log("最小值", tree.min());
+      console.log("最大值", tree.max());
+      console.log("查询7", tree.search(7));
+      console.log("删除15和7");
+
+      tree.remove(15);
+      tree.remove(7);
+
+      //   测试中序遍历
+      res = [];
+      tree.midOrderTraversal((key) => {
+        res.push(key);
+      });
+      console.log("中序遍历", res);
+    </script>
+  </body>
+</html>
